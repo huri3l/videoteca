@@ -11,4 +11,6 @@ routes.put("/videos/:id", VideoController.update);
 
 routes.delete("/videos/:id", VideoController.delete);
 
+routes.patch("/videos/:id", VideoController.updateLikes);
+
 module.exports = routes;
