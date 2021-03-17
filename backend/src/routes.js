@@ -3,9 +3,9 @@ const routes = express.Router();
 
 const VideoController = require("./controllers/VideoController");
 
-routes.get("/videos", VideoController.list);
+routes.get("/videos", VideoController.index);
 
-routes.post("/videos", VideoController.create);
+routes.post("/videos", VideoController.store);
 
 routes.put("/videos/:id", VideoController.update);
 
