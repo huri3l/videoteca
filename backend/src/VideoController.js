@@ -1,3 +1,5 @@
+const { v4: uuid } = require("uuid");
+
 const videos = [];
 
 module.exports = {
@@ -17,7 +19,7 @@ module.exports = {
     }
 
     video = {
-      id: String(Math.floor(Math.random() * 1000)),
+      id: uuid(),
       title,
       link,
       likes: likes || 0,
