@@ -1,4 +1,4 @@
-const { v4: uuid } = require("uuid");
+const { v4: uuid, validate } = require("uuid");
 
 const videos = [];
 
@@ -30,14 +30,17 @@ module.exports = {
   },
 
   update(req, res) {
-    console.log("entro");
     const { id } = req.params;
     const { title, link } = req.body;
+
+    if (!validate(id)) {
+      return res.status(400).json({ error: "Invalid ID" });
+    }
 
     if (!title || !link) {
       return res
         .status(400)
-        .json({ error: "You must inform a new title and a new ID" });
+        .json({ error: "You must inform a new title and a new link" });
     }
 
     const videoIdx = videos.findIndex((video) => video.id === id);
