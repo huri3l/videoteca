@@ -3,7 +3,7 @@ const { v4: uuid, validate } = require("uuid");
 const videos = [];
 
 module.exports = {
-  list(req, res) {
+  index(req, res) {
     if (videos.length === 0) {
       return res.status(400).json({ warning: "No videos to show" });
     }
@@ -11,7 +11,7 @@ module.exports = {
     return res.status(200).json(videos);
   },
 
-  create(req, res) {
+  store(req, res) {
     const { title, link } = req.body;
 
     if (!title || !link) {
