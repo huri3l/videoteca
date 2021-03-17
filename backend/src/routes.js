@@ -1,7 +1,7 @@
 const express = require("express");
 const routes = express.Router();
 
-const VideoController = require("./VideoController");
+const VideoController = require("./controllers/VideoController");
 
 routes.get("/videos", VideoController.list);
 
