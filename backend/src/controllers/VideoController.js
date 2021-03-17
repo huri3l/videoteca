@@ -4,11 +4,11 @@ const videos = [];
 
 module.exports = {
   index(req, res) {
-    if (!Array.isArray(videos) || videos.length) {
+    if (!Array.isArray(videos) || !videos.length) {
       return res.status(400).json({ warning: "No videos to show" });
     }
 
-    return res.status(200).json(videos);
+    return res.status(200).json({ videos });
   },
 
   store(req, res) {
@@ -44,19 +44,15 @@ module.exports = {
       return res.status(400).json({ error: "Video not found" });
     }
 
-    if (!title || !link) {
+    if (!title && !link) {
       return res
         .status(400)
-        .json({ error: "You must inform a new title and a new link" });
+        .json({ error: "You must inform a new title or a new link" });
     }
 
-    const updatedVideo = {
-      id,
-      title,
-      link,
-    };
+    if (title) videos[videoIdx].title = title;
 
-    videos[videoIdx] = updatedVideo;
+    if (link) videos[videoIdx].link = link;
 
     return res.status(200).json({ message: "Video updated succesfully!" });
   },
