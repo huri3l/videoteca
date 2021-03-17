@@ -4,7 +4,7 @@ const videos = [];
 
 module.exports = {
   index(req, res) {
-    if (videos.length === 0) {
+    if (!Array.isArray(videos) || videos.length) {
       return res.status(400).json({ warning: "No videos to show" });
     }
 
