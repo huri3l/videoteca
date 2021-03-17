@@ -59,4 +59,22 @@ module.exports = {
 
     return res.status(200).json({ message: "Video updated succesfully!" });
   },
+
+  delete(req, res) {
+    const { id } = req.params;
+
+    if (!validate(id)) {
+      return res.status(400).json({ error: "Invalid ID" });
+    }
+
+    const videoIdx = videos.findIndex((video) => video.id === id);
+
+    if (videoIdx === -1) {
+      return res.status(400).json({ error: "Video not found" });
+    }
+
+    videos.splice(videoIdx, 1);
+
+    return res.status(200).json({ message: "Video removed succesfully!" });
+  },
 };

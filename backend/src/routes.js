@@ -9,4 +9,6 @@ routes.post("/videos", VideoController.create);
 
 routes.put("/videos/:id", VideoController.update);
 
+routes.delete("/videos/:id", VideoController.delete);
+
 module.exports = routes;
