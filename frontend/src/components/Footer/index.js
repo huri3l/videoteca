@@ -4,8 +4,8 @@ import "./styles.css";
 
 export default function Footer() {
   return (
-    <div className="footer">
+    <footer>
       <span>Study app developed with ❤ by @huri3l</span>
-    </div>
+    </footer>
   );
 }
