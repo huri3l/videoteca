@@ -34,6 +34,8 @@
   height: 40px;
 
   color: #1E1E1E;
+  background-color: transparent;
+  padding: 0;
   font-weight: 700;
   font-size: 1.2em;
 }
@@ -64,25 +66,25 @@
   gap: 15px;
 }
 
-.overlay .container > form article {
+.overlay .container > form section {
   margin: auto 0;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.overlay .container form article div {
+.overlay .container form section div {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-.overlay .container form > article div label {
+.overlay .container form > section div label {
   font-size: 1.2em;
   font-weight: 400;
 }
 
-.overlay .container form > article div input {
+.overlay .container form > section div input {
   border: none;
   color: #1E1E1E;
   background-color: #EEEEEE;
