@@ -1,27 +1,83 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  justify-content: center;
+  align-items: center;
+}
+
 .video-list {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  justify-self: center;
+  max-width: 1000px;
+
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .video-list .video {
   list-style: none;
   background: #EEEEEE;
   padding: 10px;
-  height: 250px;
+  height: 200px;
   width: 250px;
 
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+}
 
-  overflow-x: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+.video-list .video h2 {
+  color: #1E1E1E;
 }
 
 .video-list .video span {
+  border-left: 3px solid #BBBBBB;
+  padding-left: 10px;
+
   color: #999999;
   font-style: italic;
+  align-self: start;
+
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+}
+
+.video-list .add-video {
+  list-style: none;
+  border: 5px dashed #EEEEEE;
+  background: none;
+  padding: 10px;
+  height: 200px;
+  width: 250px;
+  cursor: pointer; 
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.video-list .add-video svg {
+  width: 3em;
+  height: 3em;
+  color: #999999; 
+}
+
+.empty-video-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty-video-list button {
+  background-color: #CECECE;
+  border: none;
+  padding: 10px;
+  color: #1E1E1E;
+  margin-top: 10px;
 }
 
