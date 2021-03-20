@@ -18,7 +18,7 @@ module.exports = {
       id: uuid(),
       title,
       link,
-      likes: 0,
+      liked: false,
     };
 
     videos.push(video);
@@ -71,7 +71,7 @@ module.exports = {
     return res.status(200).json({ message: "Video removed succesfully!" });
   },
 
-  updateLikes(req, res) {
+  updateLike(req, res) {
     const { id } = req.params;
 
     if (!validate(id)) {
@@ -84,8 +84,12 @@ module.exports = {
       return res.status(400).json({ error: "Video not found" });
     }
 
-    videos[videoIdx].likes++;
+    videos[videoIdx].liked = !videos[videoIdx].liked;
 
-    return res.status(200).json({ message: "Video liked sucessfully!" });
+    return res.status(200).json({
+      message: `Video ${
+        videos[videoIdx].liked ? "liked" : "unliked"
+      } sucessfully!`,
+    });
   },
 };
