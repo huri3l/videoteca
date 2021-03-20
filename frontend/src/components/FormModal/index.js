@@ -39,7 +39,7 @@ export default function FormModal() {
           </button>
         </header>
         <form>
-          <section>
+          <main>
             <div>
               <label htmlFor="title">Title</label>
               <input
@@ -60,8 +60,10 @@ export default function FormModal() {
                 onChange={linkHandler}
               />
             </div>
-          </section>
-          <button onClick={submitForm}>Submit</button>
+          </main>
+          <footer>
+            <button onClick={submitForm}>Submit</button>
+          </footer>
         </form>
       </div>
     </div>

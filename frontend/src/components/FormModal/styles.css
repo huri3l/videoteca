@@ -66,25 +66,25 @@
   gap: 15px;
 }
 
-.overlay .container > form section {
+.overlay .container > form main {
   margin: auto 0;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.overlay .container form section div {
+.overlay .container form main div {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-.overlay .container form > section div label {
+.overlay .container form > main div label {
   font-size: 1.2em;
   font-weight: 400;
 }
 
-.overlay .container form > section div input {
+.overlay .container form > main div input {
   border: none;
   color: #1E1E1E;
   background-color: #EEEEEE;
@@ -94,7 +94,7 @@
   padding-left: 10px;
 }
 
-.overlay .container form > button {
+.overlay .container form > footer button {
   align-self: center;
   background: #EEEEEE;
   border: none;
@@ -106,6 +106,6 @@
   transition: opacity 0.2s;
 }
 
-.overlay .container form > button:hover {
+.overlay .container form > footer button:hover {
   opacity: 50%;
 }
