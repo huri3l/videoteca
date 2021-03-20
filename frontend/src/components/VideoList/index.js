@@ -1,20 +1,15 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { IoAddSharp } from "react-icons/io5";
 import { FormModalContext } from "../../context/FormModalContext";
+import { VideoListContext } from "../../context/VideoListContext";
 
-import api from "../../services/api";
+import Video from "../Video";
 
 import "./styles.css";
 
 export default function VideoList() {
-  const [videos, setVideos] = useState([]);
+  const { videos } = useContext(VideoListContext);
   const { openFormModal } = useContext(FormModalContext);
-
-  useEffect(() => {
-    api.get("videos").then((res) => {
-      setVideos(res.data.videos);
-    });
-  }, []);
 
   return (
     <div className="container">
@@ -22,12 +17,13 @@ export default function VideoList() {
         <>
           <ul className="video-list">
             {videos.map((video) => (
-              <li key={video.id}>
-                <article className="video">
-                  <h2>{video.title}</h2>
-                  <span>{video.link}</span>
-                </article>
-              </li>
+              <Video
+                key={video.id}
+                id={video.id}
+                title={video.title}
+                link={video.link}
+                liked={video.liked}
+              />
             ))}
             <li>
               <button className="add-video" onClick={openFormModal}>
