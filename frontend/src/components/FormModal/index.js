@@ -1,25 +1,18 @@
 import React, { useContext, useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import { FormModalContext } from "../../context/FormModalContext";
-import api from "../../services/api";
 
 import "./styles.css";
 
 export default function FormModal() {
-  const [title, setTitle] = useState("");
-  const [link, setLink] = useState("");
-  const { closeFormModal } = useContext(FormModalContext);
-
-  function submitForm(e) {
-    e.preventDefault();
-
-    api.post("videos", {
-      title,
-      link,
-    });
-
-    closeFormModal();
-  }
+  const {
+    closeFormModal,
+    submitForm,
+    title,
+    setTitle,
+    link,
+    setLink,
+  } = useContext(FormModalContext);
 
   function titleHandler(e) {
     setTitle(e.target.value);
