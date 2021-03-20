@@ -1,19 +1,19 @@
 import React, { useContext } from "react";
 import { IoAddSharp } from "react-icons/io5";
 import { FormModalContext } from "../../context/FormModalContext";
-import { VideoListContext } from "../../context/VideoListContext";
+import { useAxios } from "../../hooks/useAxios";
 import Video from "../Video";
 
 import "./styles.css";
 
 export default function VideoListItems() {
-  const { videos } = useContext(VideoListContext);
   const { openFormModal } = useContext(FormModalContext);
+  const { data } = useAxios(`videos`);
 
   return (
     <>
       <ul className="video-list">
-        {videos.map((video) => (
+        {data?.videos.map((video) => (
           <Video
             key={video.id}
             id={video.id}

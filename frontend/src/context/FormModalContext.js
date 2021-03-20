@@ -1,11 +1,14 @@
 import { createContext, useContext, useState } from "react";
 import FormModal from "../components/FormModal";
+import { useAxios } from "../hooks/useAxios";
 import api from "../services/api";
 import { EditingVideoContext } from "./EditingVideoContext";
 
 export const FormModalContext = createContext();
 
 export function FormModalProvider({ children }) {
+  const { data, mutate } = useAxios("videos");
+
   const [title, setTitle] = useState("");
   const [link, setLink] = useState("");
   const [isFormModalUp, setIsFormModalUp] = useState(false);
@@ -20,16 +23,35 @@ export function FormModalProvider({ children }) {
 
   function submitForm(e) {
     e.preventDefault();
+
     if (editingVideo) {
       api.put(`videos/${editingVideo}`, {
         title,
         link,
       });
+
+      const updatedVideos = {
+        videos: data.videos?.map((video) => {
+          if (video.id === editingVideo) {
+            return { ...video, title, link };
+          }
+          return video;
+        }),
+      };
+
+      mutate(updatedVideos, false);
     } else {
-      api.post("videos", {
+      const video = {
         title,
         link,
-      });
+      };
+      api.post("videos", video);
+
+      const updatedVideos = {
+        videos: [...data.videos, video],
+      };
+
+      mutate(updatedVideos, false);
     }
 
     closeFormModal();
