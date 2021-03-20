@@ -17,35 +17,6 @@
   gap: 10px;
 }
 
-.video-list .video {
-  list-style: none;
-  background: #EEEEEE;
-  padding: 10px;
-  height: 200px;
-  width: 250px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.video-list .video h2 {
-  color: #1E1E1E;
-}
-
-.video-list .video span {
-  border-left: 3px solid #BBBBBB;
-  padding-left: 10px;
-
-  color: #999999;
-  font-style: italic;
-  align-self: start;
-
-  overflow-x: hidden;
-  overflow-wrap: break-word;
-}
-
 .video-list .add-video {
   list-style: none;
   border: 5px dashed #EEEEEE;
