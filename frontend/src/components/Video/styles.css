@@ -15,16 +15,18 @@
   color: #1E1E1E;
 }
 
-.video span {
+.video p {
   border-left: 3px solid #BBBBBB;
   padding-left: 10px;
+  max-width: 230px;
 
   color: #999999;
   font-style: italic;
   align-self: start;
 
-  overflow-x: hidden;
-  overflow-wrap: break-word;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .video .button-area {
