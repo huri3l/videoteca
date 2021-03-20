@@ -1,0 +1,56 @@
+.video {
+  list-style: none;
+  background: #EEEEEE;
+  padding: 10px;
+  height: 200px;
+  width: 250px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.video h2 {
+  color: #1E1E1E;
+}
+
+.video span {
+  border-left: 3px solid #BBBBBB;
+  padding-left: 10px;
+
+  color: #999999;
+  font-style: italic;
+  align-self: start;
+
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+}
+
+.video .button-area {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.video .button-area button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  transition: opacity 0.2s;
+}
+
+.video .button-area .liked svg {
+  color: #3EA6ff;
+}
+
+.video .button-area button:hover {
+  opacity: 50%;
+}
+
+.video .button-area button svg {
+  height: 20px;
+  width: 20px;
+  color: #1E1E1E;
+}
