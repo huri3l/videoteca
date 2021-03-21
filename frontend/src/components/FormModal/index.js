@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { IoClose, IoCheckmark } from "react-icons/io5";
+import { EditingVideoContext } from "../../context/EditingVideoContext";
 import { FormModalContext } from "../../context/FormModalContext";
 
 import "./styles.css";
@@ -14,6 +15,8 @@ export default function FormModal() {
     setLink,
   } = useContext(FormModalContext);
 
+  const { editingVideo } = useContext(EditingVideoContext);
+
   function titleHandler(e) {
     setTitle(e.target.value);
   }
@@ -26,7 +29,7 @@ export default function FormModal() {
     <div className="overlay">
       <div className="container">
         <header>
-          <strong>Add a video</strong>
+          <strong>{editingVideo ? "Edit video" : "Add a video"}</strong>
           <button onClick={closeFormModal}>
             <IoClose />
           </button>
