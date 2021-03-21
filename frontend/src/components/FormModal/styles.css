@@ -19,6 +19,7 @@
   max-height: 400px;
   padding: 2em 3em;
   box-shadow: 0 0 60px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
 
   display: flex;
   flex-direction: column;
@@ -87,7 +88,8 @@
 .overlay .container form > main div input {
   border: none;
   color: #1E1E1E;
-  background-color: #EEEEEE;
+  background-color: #F5F5F5;
+  border-radius: 5px;
 
   height: 30px;
   width: 100%;
@@ -96,10 +98,11 @@
 
 .overlay .container form > footer button {
   align-self: center;
-  background: #EEEEEE;
+  background: #B4ECB4;
   border: none;
+  border-radius: 6px;
   width: 150px;
-  height: 30px;
+  height: 35px;
   font-weight: 700;
   cursor: pointer;
 
@@ -107,5 +110,11 @@
 }
 
 .overlay .container form > footer button:hover {
-  opacity: 50%;
+  opacity: 0.5;
+}
+
+.overlay .container form > footer button svg {
+  color: white;
+  width: 2.4em;
+  height: 2.4em;
 }

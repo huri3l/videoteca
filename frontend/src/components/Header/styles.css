@@ -1,20 +1,9 @@
-@media(max-width: 430px) {
-  header {
-    justify-content: center !important;
-  }
-  header h3 {
-    display: none;
-  }
-}
-
 header {
   width: 100vw;
   height: 50px;
   padding: 0px 20px;
-  background: #CCCCCC;
 
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 

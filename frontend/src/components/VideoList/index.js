@@ -1,17 +1,17 @@
 import React from "react";
-import { useAxios } from "../../hooks/useAxios";
-import EmptyVideoListItems from "../EmptyVideoListItems";
+import AddVideo from "../AddVideo";
 
 import VideoListItems from "../VideoListItems";
 
 import "./styles.css";
 
 export default function VideoList() {
-  const { data } = useAxios(`videos`);
-
   return (
     <div className="container">
-      {data?.videos.length ? <VideoListItems /> : <EmptyVideoListItems />}
+      <ul className="video-list">
+        <VideoListItems />
+        <AddVideo />
+      </ul>
     </div>
   );
 }

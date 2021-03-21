@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { IoCloseSharp } from "react-icons/io5";
+import { IoClose, IoCheckmark } from "react-icons/io5";
 import { FormModalContext } from "../../context/FormModalContext";
 
 import "./styles.css";
@@ -28,7 +28,7 @@ export default function FormModal() {
         <header>
           <strong>Add a video</strong>
           <button onClick={closeFormModal}>
-            <IoCloseSharp />
+            <IoClose />
           </button>
         </header>
         <form>
@@ -55,7 +55,9 @@ export default function FormModal() {
             </div>
           </main>
           <footer>
-            <button onClick={submitForm}>Submit</button>
+            <button onClick={submitForm}>
+              <IoCheckmark />
+            </button>
           </footer>
         </form>
       </div>

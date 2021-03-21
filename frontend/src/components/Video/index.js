@@ -1,10 +1,6 @@
 import React, { useContext } from "react";
 
-import {
-  IoTrashBinSharp,
-  IoThumbsUpSharp,
-  IoPencilSharp,
-} from "react-icons/io5";
+import { IoTrashBin, IoThumbsUp, IoPencil } from "react-icons/io5";
 import { EditingVideoContext } from "../../context/EditingVideoContext";
 import { FormModalContext } from "../../context/FormModalContext";
 import { useAxios } from "../../hooks/useAxios";
@@ -58,13 +54,13 @@ export default function Video({ id, title, link, liked }) {
         <p>{link}</p>
         <div className="button-area">
           <button onClick={handleLike} className={liked ? "liked" : undefined}>
-            <IoThumbsUpSharp />
+            <IoThumbsUp />
           </button>
           <button onClick={handleEdit}>
-            <IoPencilSharp />
+            <IoPencil />
           </button>
           <button onClick={handleDelete}>
-            <IoTrashBinSharp />
+            <IoTrashBin />
           </button>
         </div>
       </article>

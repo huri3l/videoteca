@@ -18,6 +18,10 @@ ul, li {
   list-style: none;
 }
 
+body {
+  background-color: #EBF6FF;
+}
+
 .App {
   display: flex;
   flex-direction: column;
