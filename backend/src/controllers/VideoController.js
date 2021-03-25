@@ -1,3 +1,4 @@
+const { response } = require("express");
 const { v4: uuid } = require("uuid");
 const Video = require("../models/Video");
 
@@ -35,23 +36,23 @@ module.exports = {
   },
 
   async update(req, res) {
-    // const { id } = req.params;
-    // const { title, link } = req.body;
-    // if (!validate(id)) {
-    //   return res.status(400).json({ error: "Invalid ID" });
-    // }
-    // const videoIdx = videos.findIndex((video) => video.id === id);
-    // if (videoIdx === -1) {
-    //   return res.status(400).json({ error: "Video not found" });
-    // }
-    // if (!title && !link) {
-    //   return res
-    //     .status(400)
-    //     .json({ error: "You must inform a new title or a new link" });
-    // }
-    // if (title) videos[videoIdx].title = title;
-    // if (link) videos[videoIdx].link = link;
-    // return res.status(200).json({ message: "Video updated succesfully!" });
+    const { title, link } = req.body;
+
+    if (!title && !link) {
+      return res
+        .status(400)
+        .json({ error: "You must inform a new title or a new link" });
+    }
+
+    if(title) res.video.title = title;
+    if(link) res.video.link = link;
+
+    try {
+      await res.video.save()
+      return res.status(200).json({ message: "Video updated succesfully!" });
+    } catch (err) {
+      res.status(500).json({ error: err.message })
+    }
   },
 
   async delete(req, res) {
@@ -64,24 +65,21 @@ module.exports = {
   },
 
   async updateLike(req, res) {
-    const { id } = req.params;
+    res.video.liked = !res.video.liked;
 
-    if (!validate(id)) {
-      return res.status(400).json({ error: "Invalid ID" });
+    try {
+      await res.video.save()
+      
+      return res.status(200).json({
+        message: `Video ${
+          res.video.liked ? "liked" : "unliked"
+        } sucessfully!`,
+      });
+    } catch (err) {
+      res.status(400).json({ error: err.message })
     }
 
-    const videoIdx = videos.findIndex((video) => video.id === id);
+    
 
-    if (videoIdx === -1) {
-      return res.status(400).json({ error: "Video not found" });
-    }
-
-    videos[videoIdx].liked = !videos[videoIdx].liked;
-
-    return res.status(200).json({
-      message: `Video ${
-        videos[videoIdx].liked ? "liked" : "unliked"
-      } sucessfully!`,
-    });
   },
 };
