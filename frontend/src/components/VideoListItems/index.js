@@ -12,8 +12,8 @@ export default function VideoListItems() {
     <>
       {data?.videos.map((video) => (
         <Video
-          key={video.id}
-          id={video.id}
+          key={video._id}
+          id={video._id}
           title={video.title}
           link={video.link}
           liked={video.liked}
