@@ -12,7 +12,7 @@ module.exports = {
     try {
       const video = await Video.findById(id);
       res.video = video;
-      if (video) {
+      if (!video) {
         return res.status(404).json({ error: "Video not found" });
       }
     } catch (err) {
