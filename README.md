@@ -2,9 +2,11 @@
 Aplicação de estudo desenvolvida para aprender tecnologias e fixar conceitos da web.
 
 ### Tecnologias utilizadas:
+* MongoDB
 * Node.js
   * Express
   * uuid
+  * Mongoose
 * React
   * React Icons
   * Axios
