@@ -20,7 +20,7 @@ export default function Video({ id, title, link, liked }) {
 
     const updatedVideos = {
       videos: data.videos?.map((video) => {
-        if (video.id === id) {
+        if (video._id === id) {
           return { ...video, title, link, liked: !liked };
         }
         return video;
@@ -34,7 +34,7 @@ export default function Video({ id, title, link, liked }) {
     api.delete(`/videos/${id}`);
 
     const updatedVideos = {
-      videos: data.videos?.filter((video) => video.id !== id),
+      videos: data.videos?.filter((video) => video._id !== id),
     };
 
     console.log(updatedVideos);

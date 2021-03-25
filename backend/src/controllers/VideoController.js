@@ -1,44 +1,42 @@
-const { v4: uuid, validate } = require("uuid");
-
-const videos = [];
+const { response } = require("express");
+const { v4: uuid } = require("uuid");
+const Video = require("../models/Video");
 
 module.exports = {
-  index(req, res) {
-    return res.status(200).json({ videos });
+  async index(req, res) {
+    try {
+      const videos = await Video.find();
+      return res.status(200).json({ videos });
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
   },
 
-  store(req, res) {
+  async store(req, res) {
     const { title, link } = req.body;
 
     if (!title || !link) {
       return res.status(400).json({ error: "Missing title or link." });
     }
 
-    video = {
-      id: uuid(),
+    const video = new Video({
+      _id: uuid(),
       title,
       link,
       liked: false,
-    };
+    });
 
-    videos.push(video);
+    try {
+      await video.save();
 
-    return res.status(200).json({ message: "Video added succesfully!" });
+      return res.status(201).json({ message: "Video added succesfully!" });
+    } catch (err) {
+      res.status(400).json({ error: err.message });
+    }
   },
 
-  update(req, res) {
-    const { id } = req.params;
+  async update(req, res) {
     const { title, link } = req.body;
-
-    if (!validate(id)) {
-      return res.status(400).json({ error: "Invalid ID" });
-    }
-
-    const videoIdx = videos.findIndex((video) => video.id === id);
-
-    if (videoIdx === -1) {
-      return res.status(400).json({ error: "Video not found" });
-    }
 
     if (!title && !link) {
       return res
@@ -46,50 +44,42 @@ module.exports = {
         .json({ error: "You must inform a new title or a new link" });
     }
 
-    if (title) videos[videoIdx].title = title;
+    if(title) res.video.title = title;
+    if(link) res.video.link = link;
 
-    if (link) videos[videoIdx].link = link;
-
-    return res.status(200).json({ message: "Video updated succesfully!" });
+    try {
+      await res.video.save()
+      return res.status(200).json({ message: "Video updated succesfully!" });
+    } catch (err) {
+      res.status(500).json({ error: err.message })
+    }
   },
 
-  delete(req, res) {
-    const { id } = req.params;
-
-    if (!validate(id)) {
-      return res.status(400).json({ error: "Invalid ID" });
+  async delete(req, res) {
+    try {
+      await res.video.remove();
+      return res.status(200).json({ message: "Video removed succesfully!" });
+    } catch (err) {
+      return res.status(500).json({ error: err.message });
     }
-
-    const videoIdx = videos.findIndex((video) => video.id === id);
-
-    if (videoIdx === -1) {
-      return res.status(400).json({ error: "Video not found" });
-    }
-
-    videos.splice(videoIdx, 1);
-
-    return res.status(200).json({ message: "Video removed succesfully!" });
   },
 
-  updateLike(req, res) {
-    const { id } = req.params;
+  async updateLike(req, res) {
+    res.video.liked = !res.video.liked;
 
-    if (!validate(id)) {
-      return res.status(400).json({ error: "Invalid ID" });
+    try {
+      await res.video.save()
+      
+      return res.status(200).json({
+        message: `Video ${
+          res.video.liked ? "liked" : "unliked"
+        } sucessfully!`,
+      });
+    } catch (err) {
+      res.status(400).json({ error: err.message })
     }
 
-    const videoIdx = videos.findIndex((video) => video.id === id);
+    
 
-    if (videoIdx === -1) {
-      return res.status(400).json({ error: "Video not found" });
-    }
-
-    videos[videoIdx].liked = !videos[videoIdx].liked;
-
-    return res.status(200).json({
-      message: `Video ${
-        videos[videoIdx].liked ? "liked" : "unliked"
-      } sucessfully!`,
-    });
   },
 };

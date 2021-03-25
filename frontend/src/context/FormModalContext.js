@@ -32,7 +32,7 @@ export function FormModalProvider({ children }) {
 
       const updatedVideos = {
         videos: data.videos?.map((video) => {
-          if (video.id === editingVideo) {
+          if (video._id === editingVideo) {
             return { ...video, title, link };
           }
           return video;
