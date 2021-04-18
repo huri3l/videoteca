@@ -1,9 +1,18 @@
 import React, { useContext } from "react";
-import { IoClose, IoCheckmark } from "react-icons/io5";
 import { EditingVideoContext } from "../../context/EditingVideoContext";
 import { FormModalContext } from "../../context/FormModalContext";
 
-import "./styles.css";
+import {
+  Overlay,
+  Container,
+  Header,
+  CloseIcon,
+  FormContainer,
+  FormMain,
+  InputGroup,
+  Footer,
+  CheckIcon,
+} from "./styles";
 
 export default function FormModal() {
   const {
@@ -26,17 +35,17 @@ export default function FormModal() {
   }
 
   return (
-    <div className="overlay">
-      <div className="container">
-        <header>
+    <Overlay>
+      <Container>
+        <Header>
           <strong>{editingVideo ? "Edit video" : "Add a video"}</strong>
           <button onClick={closeFormModal}>
-            <IoClose />
+            <CloseIcon />
           </button>
-        </header>
-        <form>
-          <main>
-            <div>
+        </Header>
+        <FormContainer>
+          <FormMain>
+            <InputGroup>
               <label htmlFor="title">Title</label>
               <input
                 id="title"
@@ -45,8 +54,8 @@ export default function FormModal() {
                 placeholder="Insert a title"
                 onChange={titleHandler}
               />
-            </div>
-            <div>
+            </InputGroup>
+            <InputGroup>
               <label htmlFor="title">Link</label>
               <input
                 id="link"
@@ -55,15 +64,15 @@ export default function FormModal() {
                 placeholder="Insert a link"
                 onChange={linkHandler}
               />
-            </div>
-          </main>
-          <footer>
+            </InputGroup>
+          </FormMain>
+          <Footer>
             <button onClick={submitForm}>
-              <IoCheckmark />
+              <CheckIcon />
             </button>
-          </footer>
-        </form>
-      </div>
-    </div>
+          </Footer>
+        </FormContainer>
+      </Container>
+    </Overlay>
   );
 }

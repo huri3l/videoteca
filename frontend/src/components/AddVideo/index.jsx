@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
 import { FormModalContext } from "../../context/FormModalContext";
 import { EditingVideoContext } from "../../context/EditingVideoContext";
-import { IoAdd } from "react-icons/io5";
 
-import "./styles.css";
+import { AddVideoButton, AddIcon } from "./styles";
 
 export default function AddVideo() {
   const { openFormModal, setTitle, setLink } = useContext(FormModalContext);
@@ -18,9 +17,9 @@ export default function AddVideo() {
 
   return (
     <li>
-      <button className="add-video" onClick={handleAdd}>
-        <IoAdd />
-      </button>
+      <AddVideoButton onClick={handleAdd}>
+        <AddIcon />
+      </AddVideoButton>
     </li>
   );
 }

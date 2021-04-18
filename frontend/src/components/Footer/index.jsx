@@ -1,11 +1,11 @@
 import React from "react";
 
-import "./styles.css";
+import { Container } from "./styles";
 
 export default function Footer() {
   return (
-    <footer>
+    <Container>
       <strong>Study app developed with ❤ by @huri3l</strong>
-    </footer>
+    </Container>
   );
 }
