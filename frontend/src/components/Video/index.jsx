@@ -7,7 +7,7 @@ import { useAxios } from "../../hooks/useAxios";
 
 import api from "../../services/api";
 
-import "./styles.css";
+import { Container, ButtonArea, Button } from "./styles";
 
 export default function Video({ id, title, link, liked }) {
   const { handleEditMode } = useContext(FormModalContext);
@@ -49,21 +49,21 @@ export default function Video({ id, title, link, liked }) {
 
   return (
     <li key={id}>
-      <article className="video">
+      <Container>
         <h2>{title}</h2>
         <p>{link}</p>
-        <div className="button-area">
-          <button onClick={handleLike} className={liked ? "liked" : undefined}>
+        <ButtonArea>
+          <Button onClick={handleLike} liked={liked}>
             <IoThumbsUp />
-          </button>
-          <button onClick={handleEdit}>
+          </Button>
+          <Button onClick={handleEdit}>
             <IoPencil />
-          </button>
-          <button onClick={handleDelete}>
+          </Button>
+          <Button onClick={handleDelete}>
             <IoTrashBin />
-          </button>
-        </div>
-      </article>
+          </Button>
+        </ButtonArea>
+      </Container>
     </li>
   );
 }

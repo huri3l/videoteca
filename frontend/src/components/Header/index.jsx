@@ -1,11 +1,11 @@
 import React from "react";
 
-import "./styles.css";
+import { Container } from "./styles";
 
 export default function Header() {
   return (
-    <header>
+    <Container>
       <h3>videoteca</h3>
-    </header>
+    </Container>
   );
 }
