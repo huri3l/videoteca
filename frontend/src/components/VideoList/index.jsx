@@ -14,7 +14,7 @@ export default function VideoList() {
       <VideoListWrapper>
         {data?.videos.map((video) => (
           <Video
-            key={video._id}
+            key={video._id ? video._id : Math.random()}
             id={video._id}
             title={video.title}
             link={video.link}

@@ -37,8 +37,6 @@ export default function Video({ id, title, link, liked }) {
       videos: data.videos?.filter((video) => video._id !== id),
     };
 
-    console.log(updatedVideos);
-
     mutate(updatedVideos, false);
   }
 
