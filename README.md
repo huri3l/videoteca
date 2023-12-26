@@ -1,51 +1,57 @@
-# Videoteca
-Aplicação de estudo desenvolvida para aprender tecnologias e fixar conceitos da web.
+# Videoteca - A video link library
 
-### Tecnologias utilizadas:
-* MongoDB
-* Node.js
-  * Express
-  * uuid
-  * Mongoose
-* React
-  * React Icons
-  * Axios
-  * SWR
+Videoteca was developed to learn and study Fullstack JS tools. On the Frontend, React was used, and on the Backend, Node.js.
 
-### Novos aprendizados:
-#### Node.js:
-Em Node.js, pude aprender a criar um **API Rest** utilizando conceitos básicos de desenvolvimento de uma aplicação, como:
-* Criação de um CRUD em Node.js;
-* A separação de responsabilidades através de arquivos e funções de acordo com os padrões utilizados pela comunidade;
-* Roteamento com o **Express**;
-* Utilizar **Insomnia** para desenvolver o backend sem um frontend estruturado; 
-* **Métodos HTTP**
-* Liberação de uso do backend para o **CORS**.
+## Configuring
+Follow these instructions to clone the repository and start running the project locally.
 
-#### React:
-Aqui obtive vários conhecimentos novos, como:
-* Como consumir uma API utilizando o Axios;
-* Criação e utilização de hooks personalizados no React para melhor aproveitamento de código;
-* Separação das regras de negócio para serem gerenciadas por contextos;
-* O uso de SWR para melhorar ainda mais a User Experience;
-* O conceito de UI otimista e o mutate de SWR;
-* Um pouco mais sobre design responsivo e CSS.
+1. Open the terminal and navigate to the directory where you want to clone the repository, then run the following command:
+    ```bash
+    git clone https://github.com/huri3l/videoteca
+    ```
+   
+2. Enter the project directory:
+    ```bash
+    cd videoteca
+    ```
+3. Install the dependencies using Yarn:
+    ```bash
+    yarn
+    ```
+4. Run the Backend
+    ```bash
+    cd backend
+    yarn dev
+    ```
+5. Run the Frontend
+    ```bash
+    cd frontend
+    yarn start
+    ```
 
-### Sobre o app
-É um aplicativo para você salvar links de vídeos, onde pode colar o link de um vídeo, atribuí-lo um nome, dar like, editar e excluir. O código e a UI foi feita inteiramente em inglês, buscando melhorar meu conhecimento na linguagem.
-
-**Homepage:**
-
+## Technologies used:
+- MongoDB
+- Node.js
+  - Express
+  - uuid
+  - Mongoose
+- React
+  - React Icons
+  - Axios
+  - SWR
+ 
+## About the app
+### Home
 ![Homepage](./images/homepage_novideo.png)
 
-**Homepage com notas:**
-
-![Homepage2](./images/homepage.png)
-
-**Modal para criar/editar nota**
-
-![Modal](./images/modal.png)
-
-**E sim, funciona em dispositivos móveis!**
-
+### Mobile
 ![Mobile](./images/mobile.png)
+
+## What I learned
+### Node.js:
+In Node.js, I learned to create a RESTful API, covering concepts like CRUD operations, responsibility separation, Express routing, backend development with Insomnia, HTTP methods, and CORS implementation.
+
+### React:
+In React, I gained knowledge in API consumption with Axios, creating and using custom hooks for code efficiency, managing business rules through contexts, improving User Experience with SWR, understanding optimistic UI, and exploring responsive design and CSS concepts.
+
+**Videoteca** - Developed by Huriel Lopes - https://huriel.com.br/en-us
